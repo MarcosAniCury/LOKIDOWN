@@ -82,4 +82,9 @@ public class ButtonHandle : MonoBehaviour
         //Changing Scene
         Application.LoadLevel(sceneName);
     }
+
+    public void Sair()
+    {
+        Application.Quit();
+    }
 }
