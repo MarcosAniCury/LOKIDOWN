@@ -40,23 +40,11 @@ public class ButtonHandle : MonoBehaviour
 
         switch (personagem) {
 
-            case "Ace": 
+            case "General": 
                 dont = 0;
                 break;
-            case "Anny":
+            case "Maga":
                 dont = 1;
-                break;
-            case "Balthar":
-                dont = 2;
-                break;
-            case "Dion":
-                dont = 3;
-                break;
-            case "Viper":
-                dont = 4;
-                break;
-            case "Xaolin":
-                dont = 5;
                 break;
         }
 
