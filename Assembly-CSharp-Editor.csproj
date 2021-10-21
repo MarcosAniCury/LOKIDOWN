@@ -67,7 +67,6 @@
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\PropertyDrawers\TrackballGroupDrawer.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\Models\AmbientOcclusionModelEditor.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\Monitors\HistogramMonitor.cs" />
-     <Compile Include="Assets\ZenythStudios\Graphway\Assets\Editor\GraphwayEditor.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\PostProcessingFactory.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\Models\ScreenSpaceReflectionModelEditor.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\Models\BuiltinDebugViewsEditor.cs" />
@@ -78,14 +77,10 @@
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\PostProcessingBehaviourEditor.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\Models\EyeAdaptationModelEditor.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\Models\FogModelEditor.cs" />
-     <Compile Include="Assets\ZenythStudios\Graphway\Assets\Editor\GraphwayObjectEditor.cs" />
-     <Compile Include="Assets\ZenythStudios\Graphway\Assets\Editor\GraphwayMenu.cs" />
-     <Compile Include="Assets\ZenythStudios\Graphway\Assets\Editor\GraphwayNodeEditor.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\Monitors\WaveformMonitor.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\Models\ChromaticAberrationEditor.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\Models\DitheringModelEditor.cs" />
      <Compile Include="Assets\Flooded_Grounds\PostProcessing\Editor\Monitors\VectorscopeMonitor.cs" />
-     <Compile Include="Assets\ZenythStudios\Graphway\Assets\Editor\GraphwayConnectionEditor.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
