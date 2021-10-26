@@ -53,6 +53,7 @@ public class EnemyControl : MonoBehaviour {
 
 		if (waypointIndex == waypoints.Length) {
 			Destroy(this.gameObject);
+			Manager.vidas--;
 		}
 	}
 
