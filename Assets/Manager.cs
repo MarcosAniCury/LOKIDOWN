@@ -7,7 +7,7 @@ public class Manager : MonoBehaviour
 {
     public GameObject[] espacosTorres;
     public static int vidas = 20;
-    public int money = 100;
+    public static int money = 100;
     public GameObject[] torres;
     
     int torreSelecionada = -1;
@@ -47,7 +47,7 @@ public class Manager : MonoBehaviour
 
         if(espacosTorres[torreSelecionada].GetComponentInChildren<EspacoTorre>().built == false && money >= valor)
         {
-            Instantiate(torres[torre], new Vector3(espacosTorres[torreSelecionada].transform.position.x, espacosTorres[torreSelecionada].transform.position.y + 36f), Quaternion.identity);
+            Instantiate(torres[torre], new Vector3(espacosTorres[torreSelecionada].transform.position.x - 1f, espacosTorres[torreSelecionada].transform.position.y + 36f), Quaternion.identity);
             money -= valor;
             espacosTorres[torreSelecionada].GetComponentInChildren<EspacoTorre>().built = true;
             painel.SetActive(false);

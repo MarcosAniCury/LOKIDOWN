@@ -2546,7 +2546,6 @@ MonoBehaviour:
   - {fileID: 725172891}
   - {fileID: 1973463555}
   - {fileID: 248917324}
-  money: 100000
   torres:
   - {fileID: 1130780060703276171, guid: f60e9ee705b206d489e1ca4dcfd480fa, type: 3}
   numVidas: {fileID: 466554616}
@@ -7221,6 +7220,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3390618957494788662, guid: 113de49997db7a64a98c8a278fe8303d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4025679509959820973, guid: 113de49997db7a64a98c8a278fe8303d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7260,6 +7263,10 @@ PrefabInstance:
     - target: {fileID: 6411028729918941184, guid: 113de49997db7a64a98c8a278fe8303d, type: 3}
       propertyPath: m_Name
       value: ET 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699914350112010826, guid: 113de49997db7a64a98c8a278fe8303d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 113de49997db7a64a98c8a278fe8303d, type: 3}
