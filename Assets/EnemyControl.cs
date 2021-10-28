@@ -83,4 +83,9 @@ public class EnemyControl : MonoBehaviour {
 		return numberChoose;
 	}
 
+	public void setSpeed(string calculo) {
+
+		this.moveSpeed = (calculo == "*") ? this.moveSpeed * 2 : this.moveSpeed / 2;
+	}
+
 }
