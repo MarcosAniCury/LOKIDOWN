@@ -7,7 +7,7 @@ public class Manager : MonoBehaviour
 {
     public GameObject[] espacosTorres;
     public static int vidas = 20;
-    public static int money = 100;
+    public static int money = 1000;
     public GameObject[] torres;
     
     int torreSelecionada = -1;
@@ -15,6 +15,18 @@ public class Manager : MonoBehaviour
     public Text numVidas;
     public Text dinheiro;
     public GameObject painel;
+
+    private void Start()
+    {
+        int c = 0;
+        while(c < espacosTorres.Length)
+        {
+            EspacoTorre e = espacosTorres[c].GetComponent<EspacoTorre>();
+            e.posicaoVetor = c;
+            e.manager = this.gameObject;
+            c++;
+        }
+    }
 
     void Update()
     {

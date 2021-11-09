@@ -6,15 +6,11 @@ public class EspacoTorre : MonoBehaviour
 {
 
     public bool built = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject manager;
+    public int posicaoVetor;
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        manager.GetComponent<Manager>().spaceSelected(posicaoVetor);
     }
 }
