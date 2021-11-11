@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 
 public class EnemyControl : MonoBehaviour {
@@ -26,8 +28,13 @@ public class EnemyControl : MonoBehaviour {
 
 	int waypointIndex = 0;
 
+	Renderer sprite;
+	bool slow = false;
+	bool flip = false;
+
 	void Start () {
 		transform.position = waypoints [waypointIndex].transform.position;
+		sprite = GetComponent<SpriteRenderer>();
 	}
 
 	void Update () {
@@ -46,6 +53,11 @@ public class EnemyControl : MonoBehaviour {
 		transform.position = Vector3.MoveTowards (transform.position,
 												waypoints[waypointIndex].transform.position,
 												moveSpeed * Time.deltaTime);
+		if((transform.position.x > waypoints[waypointIndex].transform.position.x && !flip) || (transform.position.x < waypoints[waypointIndex].transform.position.x && flip))
+		{
+			transform.Rotate(0f, 180f, 0f);
+			flip = !flip;
+		}
 
 		if (transform.position == waypoints [waypointIndex].transform.position) {
 			waypointIndex += 1;
@@ -86,6 +98,25 @@ public class EnemyControl : MonoBehaviour {
 	public void setSpeed(string calculo) {
 
 		this.moveSpeed = (calculo == "*") ? this.moveSpeed * 2 : this.moveSpeed / 2;
+	}
+
+	public void freeze()
+	{
+		if(!slow)
+		{
+			StartCoroutine(lentidao());
+		}
+	}
+
+	IEnumerator lentidao()
+	{
+		moveSpeed /= 2;
+		sprite.material.SetColor("_Color", new Color(0.5f, 0.5f, 1f));
+		slow = true;
+		yield return new WaitForSeconds(3f);
+		moveSpeed *= 2;
+		sprite.material.SetColor("_Color", new Color(1f, 1f, 1f));
+		slow = false;
 	}
 
 }
