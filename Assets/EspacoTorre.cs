@@ -8,6 +8,7 @@ public class EspacoTorre : MonoBehaviour
     public bool built = false;
     public GameObject manager;
     public int posicaoVetor;
+    public GameObject[] wps;
 
     private void OnMouseDown()
     {

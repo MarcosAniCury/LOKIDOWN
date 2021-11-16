@@ -7,14 +7,23 @@ public class Manager : MonoBehaviour
 {
     public GameObject[] espacosTorres;
     public static int vidas = 20;
-    public static int money = 1000;
+    public static int money = 100;
     public GameObject[] torres;
-    
+    public GameObject prefabJacare;
+    public GameObject wpInicial;
+
+    int inimigos;
+    int numHorda = 1;
+    float timer = 0f;
+    public bool spawning = false;
+
     int torreSelecionada = -1;
 
     public Text numVidas;
     public Text dinheiro;
+    public Text onda;
     public GameObject painel;
+    public Button botaoComeçar;
 
     private void Start()
     {
@@ -32,6 +41,27 @@ public class Manager : MonoBehaviour
     {
         numVidas.text = "" + vidas;
         dinheiro.text = "" + money;
+        onda.text = "Onda " + numHorda;
+
+        if(spawning)
+        {
+            timer += Time.deltaTime;
+
+            if(timer >= 1.5f)
+            {
+                EnemyControl jacare = Instantiate(prefabJacare, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
+                jacare.wpAtual = wpInicial;
+                inimigos--;
+                timer = 0f;
+
+                if(inimigos <= 0)
+                {
+                    spawning = false;
+                    numHorda++;
+                    botaoComeçar.gameObject.SetActive(true);
+                }
+            }
+        }
 
         if (vidas <= 0) { 
         
@@ -62,8 +92,18 @@ public class Manager : MonoBehaviour
             Instantiate(torres[torre], new Vector3(espacosTorres[torreSelecionada].transform.position.x - 1f, espacosTorres[torreSelecionada].transform.position.y + 36f), Quaternion.identity);
             money -= valor;
             espacosTorres[torreSelecionada].GetComponentInChildren<EspacoTorre>().built = true;
+            foreach (GameObject wp in espacosTorres[torreSelecionada].GetComponentInChildren<EspacoTorre>().wps) {
+
+                wp.GetComponent<Waypoint>().torres++;
+            }
             painel.SetActive(false);
             espacosTorres[torreSelecionada].GetComponentInChildren<Button>().gameObject.SetActive(false);
         }
+    }
+
+    public void setTamOnda()
+    {
+        inimigos = 5 + (5 * numHorda);
+        spawning = true;
     }
 }

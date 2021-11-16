@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class EnemyControl : MonoBehaviour {
 
-	[SerializeField]
+	/*[SerializeField]
 	Transform[] waypoints;
 
 	[SerializeField]
@@ -23,17 +23,19 @@ public class EnemyControl : MonoBehaviour {
 	[SerializeField]
 	int[] decisionOption3;
 
+	int waypointIndex = 0;*/
+
 	[SerializeField]
 	float moveSpeed = 2f;
-
-	int waypointIndex = 0;
 
 	Renderer sprite;
 	bool slow = false;
 	bool flip = false;
 
+	public GameObject wpAtual;
+
 	void Start () {
-		transform.position = waypoints [waypointIndex].transform.position;
+		//transform.position = waypoints [waypointIndex].transform.position;
 		sprite = GetComponent<SpriteRenderer>();
 	}
 
@@ -43,8 +45,49 @@ public class EnemyControl : MonoBehaviour {
 
 	void Move()
 	{
+		if(Vector3.Distance(transform.position, wpAtual.transform.position) >= 0.01)
+		{
+			transform.position = Vector3.MoveTowards(transform.position, wpAtual.transform.position, moveSpeed * Time.deltaTime);
+		} else
+		{
+			Waypoint wp = wpAtual.GetComponent<Waypoint>();
+			if(wp.proximosWPs.Length == 0)
+			{ //Eh o waypoint final
+				Destroy(this.gameObject);
+				Manager.vidas--;
+			} else
+			{
+				GameObject prox = null;
 
-		foreach (Transform waypoint in decisionWaypoints) {
+				if(wp.proximosWPs.Length == 1)
+				{
+					prox = wp.proximosWPs[0];
+				} else
+				{
+					int menor = 100, posMenor = 0, c = 0;
+					while(c < wp.proximosWPs.Length)
+					{
+						int pesoAresta = wp.torres + wp.proximosWPs[c].GetComponent<Waypoint>().torres;
+						if(pesoAresta < menor)
+						{
+							menor = pesoAresta;
+							posMenor = c;
+						}
+						c++;
+					}
+					prox = wp.proximosWPs[posMenor];
+				}
+
+				wpAtual = prox;
+				if((transform.position.x > wpAtual.transform.position.x && !flip) || (transform.position.x < wpAtual.transform.position.x && flip))
+				{
+					transform.Rotate(0f, 180f, 0f);
+					flip = !flip;
+				}
+			}
+		}
+
+		/*foreach (Transform waypoint in decisionWaypoints) {
 			if (waypoint.position == transform.position) {
 				waypointIndex = choosePath();
 			}
@@ -66,10 +109,10 @@ public class EnemyControl : MonoBehaviour {
 		if (waypointIndex == waypoints.Length) {
 			Destroy(this.gameObject);
 			Manager.vidas--;
-		}
+		}*/
 	}
 
-	int choosePath() 
+	/*int choosePath() 
 	{
 		int decisionWaypointsIndex = 0;
 
@@ -93,7 +136,7 @@ public class EnemyControl : MonoBehaviour {
 			numberChoose = paths[numberRandom];
 		}
 		return numberChoose;
-	}
+	}*/
 
 	public void setSpeed(string calculo) {
 
