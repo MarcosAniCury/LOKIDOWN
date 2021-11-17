@@ -95,6 +95,7 @@ public class Manager : MonoBehaviour
             foreach (GameObject wp in espacosTorres[torreSelecionada].GetComponentInChildren<EspacoTorre>().wps) {
 
                 wp.GetComponent<Waypoint>().torres++;
+                Debug.Log(wp.GetComponent<Waypoint>().torres);
             }
             painel.SetActive(false);
             espacosTorres[torreSelecionada].GetComponentInChildren<Button>().gameObject.SetActive(false);
