@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class Manager : MonoBehaviour
     int numHorda = 1;
     float timer = 0f;
     public bool spawning = false;
+    public bool auto = false;
+    float timeSpawn = 1.5f;
 
     int torreSelecionada = -1;
 
@@ -43,21 +46,30 @@ public class Manager : MonoBehaviour
         dinheiro.text = "" + money;
         onda.text = "Onda " + numHorda;
 
-        if(spawning)
+        if(spawning || auto)
         {
             timer += Time.deltaTime;
 
-            if(timer >= 1.5f)
+            if(timer >= timeSpawn && inimigos > 0)
             {
                 EnemyControl jacare = Instantiate(prefabJacare, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
                 jacare.wpAtual = wpInicial;
                 inimigos--;
                 timer = 0f;
+            }
 
-                if(inimigos <= 0)
+            if (inimigos <= 0 && GameObject.FindGameObjectsWithTag("Inimigo").Length == 0)
+            {
+                spawning = false;
+                numHorda++;
+                
+                
+                if (auto)
                 {
-                    spawning = false;
-                    numHorda++;
+                    setTamOnda();
+                }
+                else
+                {
                     botaoComeçar.gameObject.SetActive(true);
                 }
             }
@@ -95,7 +107,7 @@ public class Manager : MonoBehaviour
             foreach (GameObject wp in espacosTorres[torreSelecionada].GetComponentInChildren<EspacoTorre>().wps) {
 
                 wp.GetComponent<Waypoint>().torres++;
-                Debug.Log(wp.GetComponent<Waypoint>().torres);
+                //Debug.Log(wp.GetComponent<Waypoint>().torres);
             }
             painel.SetActive(false);
             espacosTorres[torreSelecionada].GetComponentInChildren<Button>().gameObject.SetActive(false);
@@ -104,7 +116,19 @@ public class Manager : MonoBehaviour
 
     public void setTamOnda()
     {
-        inimigos = 5 + (5 * numHorda);
+        inimigos = (5 * numHorda);
+        timeSpawn = 1.5f - (float)(Math.Log(numHorda, 5) / 2);
+        timeSpawn = (timeSpawn <= 0.1) ? 0.1f : timeSpawn;
+        Debug.Log(timeSpawn);
         spawning = true;
+    }
+
+    public void toggle()
+    {
+        auto = !auto;
+        if(inimigos == 0)
+        {
+            setTamOnda();
+        }
     }
 }
