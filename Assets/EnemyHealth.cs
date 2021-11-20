@@ -26,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(this.gameObject);
             Manager.money += dinheiro;
+            Manager.numDerrotados++;
         }
     }
 }

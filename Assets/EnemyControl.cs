@@ -46,7 +46,7 @@ public class EnemyControl : MonoBehaviour {
 	void Move()
 	{
 		if(Vector3.Distance(transform.position, wpAtual.transform.position) >= 0.01)
-		{
+		{//Andar até o waypoint atual
 			transform.position = Vector3.MoveTowards(transform.position, wpAtual.transform.position, moveSpeed * Time.deltaTime);
 		} else
 		{
@@ -56,14 +56,14 @@ public class EnemyControl : MonoBehaviour {
 				Destroy(this.gameObject);
 				Manager.vidas--;
 			} else
-			{
+			{ //Escolhe o próximo waypoint
 				GameObject prox = null;
 
 				if(wp.proximosWPs.Length == 1)
-				{
+				{ //Se tem só um waypoint para ir, não precisa escolher
 					prox = wp.proximosWPs[0];
 				} else
-				{
+				{ //Escolhe o caminho com menos torres entre os waypoints
 					int menor = 100, posMenor = 0, c = 0;
 					while(c < wp.proximosWPs.Length)
 					{

@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
     public GameObject[] espacosTorres;
     public static int vidas = 20;
     public static int money = 100;
+    public static int numDerrotados = 0;
     public GameObject[] torres;
     public GameObject prefabJacare;
     public GameObject wpInicial;
@@ -30,6 +33,8 @@ public class Manager : MonoBehaviour
 
     private void Start()
     {
+        vidas = 20;
+        money = 100;
         int c = 0;
         while(c < espacosTorres.Length)
         {
@@ -75,9 +80,14 @@ public class Manager : MonoBehaviour
             }
         }
 
-        if (vidas <= 0) { 
-        
-            //Ir pra tela d game over
+        if (vidas <= 0) {
+
+            StreamWriter arquivo = new StreamWriter("GameOver.txt");
+            int ondasComp = numHorda - 1;
+            arquivo.WriteLine(ondasComp);
+            arquivo.WriteLine(numDerrotados);
+            arquivo.Close();
+            SceneManager.LoadScene("GameOver");
         }
     }
 
