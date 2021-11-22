@@ -27,6 +27,8 @@ public class EnemyControl : MonoBehaviour {
 
 	[SerializeField]
 	float moveSpeed = 2f;
+	[SerializeField]
+	int dano = 1;
 
 	Renderer sprite;
 	bool slow = false;
@@ -54,7 +56,7 @@ public class EnemyControl : MonoBehaviour {
 			if(wp.proximosWPs.Length == 0)
 			{ //Eh o waypoint final
 				Destroy(this.gameObject);
-				Manager.vidas--;
+				Manager.vidas -= dano;
 			} else
 			{ //Escolhe o próximo waypoint
 				GameObject prox = null;

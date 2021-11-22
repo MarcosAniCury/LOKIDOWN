@@ -3519,6 +3519,8 @@ MonoBehaviour:
   - {fileID: 1130780060703276171, guid: f60e9ee705b206d489e1ca4dcfd480fa, type: 3}
   - {fileID: 6601259456017314124, guid: f83196c16dd1d304993197583db90d92, type: 3}
   prefabJacare: {fileID: 8846462530991159051, guid: 1a2b2da1be0caa14e9df103e28d57a4a, type: 3}
+  prefabJacare2: {fileID: 227922955498111659, guid: e3f59a7beb0fe0245af46b6cb88d04f7, type: 3}
+  prefabTank: {fileID: 6658058435254583186, guid: 8f3d5847f7a3b0642b339adb40c526a5, type: 3}
   wpInicial: {fileID: 602512125}
   spawning: 0
   auto: 0

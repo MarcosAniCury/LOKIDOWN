@@ -14,6 +14,8 @@ public class Manager : MonoBehaviour
     public static int numDerrotados = 0;
     public GameObject[] torres;
     public GameObject prefabJacare;
+    public GameObject prefabJacare2;
+    public GameObject prefabTank;
     public GameObject wpInicial;
 
     int inimigos;
@@ -57,9 +59,35 @@ public class Manager : MonoBehaviour
 
             if(timer >= timeSpawn && inimigos > 0)
             {
-                EnemyControl jacare = Instantiate(prefabJacare, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
-                jacare.wpAtual = wpInicial;
-                inimigos--;
+                if(numHorda < 3 || inimigos <= 5) { 
+                
+                    EnemyControl jacare = Instantiate(prefabJacare, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
+                    jacare.wpAtual = wpInicial;
+                    inimigos--;
+                } else
+                {
+                    int max = (numHorda >= 3 && numHorda < 5) ? 3 : 4;
+                    int inimigoGerado = UnityEngine.Random.Range(1, max);
+
+                    switch(inimigoGerado)
+                    {
+                        case 1:
+                            EnemyControl jacare = Instantiate(prefabJacare, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
+                            jacare.wpAtual = wpInicial;
+                            inimigos--;
+                            break;
+                        case 2:
+                            EnemyControl jacare2 = Instantiate(prefabJacare2, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
+                            jacare2.wpAtual = wpInicial;
+                            inimigos -= 2;
+                            break;
+                        case 3:
+                            EnemyControl tank = Instantiate(prefabTank, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
+                            tank.wpAtual = wpInicial;
+                            inimigos -= 3;
+                            break;
+                    }
+                }
                 timer = 0f;
             }
 
@@ -136,7 +164,7 @@ public class Manager : MonoBehaviour
     public void toggle()
     {
         auto = !auto;
-        if(inimigos == 0)
+        if(inimigos == 0 && GameObject.FindGameObjectsWithTag("Inimigo").Length == 0)
         {
             setTamOnda();
         }
