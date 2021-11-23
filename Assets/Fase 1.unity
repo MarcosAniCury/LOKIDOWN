@@ -1373,7 +1373,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 1 75
+          m_StringArgument: 1 250
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &232309895
@@ -2540,7 +2540,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '75
+  m_Text: '250
 
 '
 --- !u!222 &562526288
@@ -3528,7 +3528,7 @@ MonoBehaviour:
   dinheiro: {fileID: 2067118483}
   onda: {fileID: 1595414638}
   painel: {fileID: 1581778878}
-  "botaoCome\xE7ar": {fileID: 1882481758}
+  botaoComecar: {fileID: 0}
 --- !u!1 &694379070 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6411028729918941184, guid: 113de49997db7a64a98c8a278fe8303d, type: 3}
@@ -6089,7 +6089,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '50
+  m_Text: '200
 
 '
 --- !u!222 &1030718868
@@ -8361,7 +8361,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 0 50
+          m_StringArgument: 0 200
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1523369162

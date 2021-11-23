@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int vida = 10;
+public int vida = 1;
     public int dinheiro = 25;
 
     // Start is called before the first frame update

@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 75
-  dano: 3
+  dano: 5
   wpAtual: {fileID: 0}
 --- !u!114 &6658058435254583214
 MonoBehaviour:
@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bbb8f87eb6fdd47a3a4fc8ffc95ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 70
-  dinheiro: 100
+  vida: 50
+  dinheiro: 5
 --- !u!114 &4966099584547099327
 MonoBehaviour:
   m_ObjectHideFlags: 0

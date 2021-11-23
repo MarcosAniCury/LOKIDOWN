@@ -9,8 +9,8 @@ using UnityEngine.SceneManagement;
 public class Manager : MonoBehaviour
 {
     public GameObject[] espacosTorres;
-    public static int vidas = 20;
-    public static int money = 100;
+    public static int vidas = 100;
+    public static int money = 550;
     public static int numDerrotados = 0;
     public GameObject[] torres;
     public GameObject prefabJacare;
@@ -25,18 +25,21 @@ public class Manager : MonoBehaviour
     public bool auto = false;
     float timeSpawn = 1.5f;
 
+    int lifeLastTurn = 100;
+
     int torreSelecionada = -1;
 
     public Text numVidas;
     public Text dinheiro;
     public Text onda;
     public GameObject painel;
-    public Button botaoComeçar;
+    public Button botaoComecar;
 
     private void Start()
     {
-        vidas = 20;
-        money = 100;
+        vidas = 100;
+        lifeLastTurn = vidas;
+        money = 550;
         int c = 0;
         while(c < espacosTorres.Length)
         {
@@ -59,34 +62,20 @@ public class Manager : MonoBehaviour
 
             if(timer >= timeSpawn && inimigos > 0)
             {
-                if(numHorda < 3 || inimigos <= 5) { 
-                
+                int inimigoGerado = UnityEngine.Random.Range(1, 101);
+
+                if (inimigoGerado < 80-numHorda || inimigos < 3) {
                     EnemyControl jacare = Instantiate(prefabJacare, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
                     jacare.wpAtual = wpInicial;
                     inimigos--;
-                } else
-                {
-                    int max = (numHorda >= 3 && numHorda < 5) ? 3 : 4;
-                    int inimigoGerado = UnityEngine.Random.Range(1, max);
-
-                    switch(inimigoGerado)
-                    {
-                        case 1:
-                            EnemyControl jacare = Instantiate(prefabJacare, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
-                            jacare.wpAtual = wpInicial;
-                            inimigos--;
-                            break;
-                        case 2:
-                            EnemyControl jacare2 = Instantiate(prefabJacare2, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
-                            jacare2.wpAtual = wpInicial;
-                            inimigos -= 2;
-                            break;
-                        case 3:
-                            EnemyControl tank = Instantiate(prefabTank, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
-                            tank.wpAtual = wpInicial;
-                            inimigos -= 3;
-                            break;
-                    }
+                } else if (inimigoGerado < 95-numHorda || inimigos < 5) {
+                    EnemyControl jacare2 = Instantiate(prefabJacare2, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
+                    jacare2.wpAtual = wpInicial;
+                    inimigos -= 3;
+                } else {
+                    EnemyControl tank = Instantiate(prefabTank, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
+                    tank.wpAtual = wpInicial;
+                    inimigos -= 5;
                 }
                 timer = 0f;
             }
@@ -103,8 +92,17 @@ public class Manager : MonoBehaviour
                 }
                 else
                 {
-                    botaoComeçar.gameObject.SetActive(true);
+                    botaoComecar.gameObject.SetActive(true);
                 }
+
+                if (lifeLastTurn == vidas) {
+                    vidas += 5;
+                    vidas = vidas > 100 ? 100 : vidas;
+                }
+
+                lifeLastTurn = vidas;
+
+                money += 150;
             }
         }
 
@@ -120,8 +118,6 @@ public class Manager : MonoBehaviour
     }
 
     public void spaceSelected(int torre) {
-
-        //Debug.Log("Clicou no espaco " + torre);
 
         torreSelecionada = torre;
         if (espacosTorres[torre].GetComponentInChildren<EspacoTorre>().built == false) {
@@ -145,7 +141,6 @@ public class Manager : MonoBehaviour
             foreach (GameObject wp in espacosTorres[torreSelecionada].GetComponentInChildren<EspacoTorre>().wps) {
 
                 wp.GetComponent<Waypoint>().torres++;
-                //Debug.Log(wp.GetComponent<Waypoint>().torres);
             }
             painel.SetActive(false);
             espacosTorres[torreSelecionada].GetComponentInChildren<Button>().gameObject.SetActive(false);
@@ -157,7 +152,6 @@ public class Manager : MonoBehaviour
         inimigos = (5 * numHorda);
         timeSpawn = 1.5f - (float)(Math.Log(numHorda, 5) / 2);
         timeSpawn = (timeSpawn <= 0.1) ? 0.1f : timeSpawn;
-        Debug.Log(timeSpawn);
         spawning = true;
     }
 

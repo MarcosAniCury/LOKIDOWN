@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 250
+  dano: 1
   wpAtual: {fileID: 0}
 --- !u!114 &8846462530991159053
 MonoBehaviour:
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 10
-  dinheiro: 25
+  dinheiro: 1
 --- !u!61 &8846462530991159054
 BoxCollider2D:
   m_ObjectHideFlags: 0

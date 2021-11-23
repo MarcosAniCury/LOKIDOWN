@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class torre1 : MonoBehaviour
 {
-    public int dano = 5;
+    public int dano = 1;
     public GameObject bala;
     public GameObject alvo = null;
     public GameObject circulo;
@@ -60,42 +60,4 @@ public class torre1 : MonoBehaviour
     {
         circulo.SetActive(false);
     }
-
-    /*public void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Entrou ae");
-        if (alvo == null) {
-
-            alvo = collision.gameObject;
-            Debug.Log(alvo.name);
-        }
-    }
-
-    public void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.gameObject == alvo)
-        {
-            if(timer >= 1f)
-            {
-                projetil tiro = Instantiate(bala, transform.position, Quaternion.identity).GetComponent<projetil>();
-                tiro.dano = this.dano;
-                tiro.alvo = alvo;
-                timer = 0f;
-            }
-        } else if (alvo == null)
-        {
-            alvo = collision.gameObject;
-        }
-        Debug.Log("AAAAAAAAAAAAAAAAA");
-    }
-
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject == alvo)
-        {
-            alvo = null;
-        }
-
-        Debug.Log("AEIOU");
-    }*/
 }

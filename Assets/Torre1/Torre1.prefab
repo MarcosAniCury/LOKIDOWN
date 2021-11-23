@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92a7febcc6ed2842a0546eb3c0af3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dano: 5
+  dano: 10
   bala: {fileID: 3886782074029487678, guid: 8bfc6e8919e1b304786a2860dc0c81cf, type: 3}
   alvo: {fileID: 0}
   circulo: {fileID: 1600165443582947313}
