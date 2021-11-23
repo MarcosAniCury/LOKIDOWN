@@ -85,7 +85,6 @@ public class Manager : MonoBehaviour
                 spawning = false;
                 numHorda++;
                 
-                
                 if (auto)
                 {
                     setTamOnda();
@@ -162,5 +161,20 @@ public class Manager : MonoBehaviour
         {
             setTamOnda();
         }
+    }
+
+    public void pausa()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void continua()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void acelera()
+    {
+        Time.timeScale = 2;
     }
 }
