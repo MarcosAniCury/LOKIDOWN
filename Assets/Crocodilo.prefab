@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 227922955498111663}
   - component: {fileID: 227922955498111662}
   m_Layer: 0
-  m_Name: "Jacar\xE92"
+  m_Name: Crocodilo
   m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
