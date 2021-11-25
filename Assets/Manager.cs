@@ -107,11 +107,11 @@ public class Manager : MonoBehaviour
 
         if (vidas <= 0) {
 
-            StreamWriter arquivo = new StreamWriter("GameOver.txt");
+            /*StreamWriter arquivo = new StreamWriter("GameOver.txt");
             int ondasComp = numHorda - 1;
             arquivo.WriteLine(ondasComp);
             arquivo.WriteLine(numDerrotados);
-            arquivo.Close();
+            arquivo.Close();*/
             SceneManager.LoadScene("GameOver");
         }
     }
@@ -168,12 +168,12 @@ public class Manager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void continua()
+    public void x1()
     {
         Time.timeScale = 1;
     }
 
-    public void acelera()
+    public void x2()
     {
         Time.timeScale = 2;
     }
