@@ -5256,7 +5256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &944315909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5303,7 +5303,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 692859733}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: continua
+        m_MethodName: x2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11439,7 +11439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2026077332
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11506,7 +11506,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 692859733}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: acelera
+        m_MethodName: x1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11841,7 +11841,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 692859733}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: continua
+        m_MethodName: x1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

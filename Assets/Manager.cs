@@ -168,12 +168,12 @@ public class Manager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void continua()
+    public void x1()
     {
         Time.timeScale = 1;
     }
 
-    public void acelera()
+    public void x2()
     {
         Time.timeScale = 2;
     }
