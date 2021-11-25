@@ -62,6 +62,7 @@ public class Manager : MonoBehaviour
 
             if(timer >= timeSpawn && inimigos > 0)
             {
+                UnityEngine.Random.InitState((int)DateTimeOffset.Now.ToUnixTimeSeconds());
                 int inimigoGerado = UnityEngine.Random.Range(1, 101);
 
                 if (inimigoGerado < 80-numHorda || inimigos < 3) {
