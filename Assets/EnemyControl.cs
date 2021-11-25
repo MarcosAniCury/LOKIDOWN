@@ -35,6 +35,7 @@ public class EnemyControl : MonoBehaviour {
 	bool flip = false;
 
 	public GameObject wpAtual;
+	GameObject wpAnterior;
 
 	void Start () {
 		//transform.position = waypoints [waypointIndex].transform.position;
@@ -70,16 +71,18 @@ public class EnemyControl : MonoBehaviour {
 					while(c < wp.proximosWPs.Length)
 					{
 						int pesoAresta = wp.torres + wp.proximosWPs[c].GetComponent<Waypoint>().torres;
-						if(pesoAresta < menor)
+						if(pesoAresta < menor && wp.proximosWPs[c] != wpAnterior)
 						{
 							menor = pesoAresta;
 							posMenor = c;
 						}
 						c++;
 					}
+
 					prox = wp.proximosWPs[posMenor];
 				}
 
+				wpAnterior = wpAtual;
 				wpAtual = prox;
 				if((transform.position.x > wpAtual.transform.position.x && !flip) || (transform.position.x < wpAtual.transform.position.x && flip))
 				{

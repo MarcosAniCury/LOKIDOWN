@@ -27,6 +27,7 @@ public class Manager : MonoBehaviour
     float timeSpawn = 1.5f;
 
     int lifeLastTurn = 100;
+    float tempoAnterior;
 
     int torreSelecionada = -1;
 
@@ -164,7 +165,13 @@ public class Manager : MonoBehaviour
 
     public void pausa()
     {
+        tempoAnterior = Time.timeScale;
         Time.timeScale = 0;
+    }
+
+    public void continuar()
+    {
+        Time.timeScale = tempoAnterior;
     }
 
     public void x1()
