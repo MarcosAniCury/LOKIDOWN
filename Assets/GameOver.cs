@@ -7,15 +7,11 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-    //public Text texto;
+    public Text texto;
     // Start is called before the first frame update
     void Start()
     {
-       /* StreamReader arquivo = new StreamReader("GameOver.txt");
-        int ondas = int.Parse(arquivo.ReadLine());
-        int inimigos = int.Parse(arquivo.ReadLine());
-
-        texto.text = ondas + " ondas foram concluidas com sucesso.\n" + inimigos + " tropas foram derrotadas.";*/
+        texto.text = Manager.ondasComp + " ondas foram concluidas com sucesso.\n" + Manager.numDerrotados + " tropas foram derrotadas.";
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ public class Manager : MonoBehaviour
     public static int vidas = 100;
     public static int money = 550;
     public static int numDerrotados = 0;
+    public static int ondasComp = 0;
     public GameObject[] torres;
     public GameObject prefabJacare;
     public GameObject prefabJacare2;
@@ -37,6 +38,7 @@ public class Manager : MonoBehaviour
 
     private void Start()
     {
+        numDerrotados = 0;
         vidas = 100;
         lifeLastTurn = vidas;
         money = 550;
@@ -108,11 +110,7 @@ public class Manager : MonoBehaviour
 
         if (vidas <= 0) {
 
-            /*StreamWriter arquivo = new StreamWriter("GameOver.txt");
-            int ondasComp = numHorda - 1;
-            arquivo.WriteLine(ondasComp);
-            arquivo.WriteLine(numDerrotados);
-            arquivo.Close();*/
+            ondasComp = numHorda - 1;
             SceneManager.LoadScene("GameOver");
         }
     }
