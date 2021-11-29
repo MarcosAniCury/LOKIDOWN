@@ -9,9 +9,11 @@ public class EspacoTorre : MonoBehaviour
     public GameObject manager;
     public int posicaoVetor;
     public GameObject[] wps;
+    public AudioSource somClique;
 
     private void OnMouseDown()
     {
+        somClique.Play();
         manager.GetComponent<Manager>().spaceSelected(posicaoVetor);
     }
 }

@@ -32,10 +32,12 @@ public class EnemyControl : MonoBehaviour {
 
 	Renderer sprite;
 	bool slow = false;
-	bool flip = false;
+	public bool flip = false;
 
 	public GameObject wpAtual;
 	GameObject wpAnterior;
+
+	public AudioSource barulhoDano;
 
 	void Start () {
 		//transform.position = waypoints [waypointIndex].transform.position;
@@ -56,6 +58,7 @@ public class EnemyControl : MonoBehaviour {
 			Waypoint wp = wpAtual.GetComponent<Waypoint>();
 			if(wp.proximosWPs.Length == 0)
 			{ //Eh o waypoint final
+				barulhoDano.Play();
 				Destroy(this.gameObject);
 				Manager.vidas -= dano;
 			} else

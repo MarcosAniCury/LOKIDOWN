@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TorreFogo : MonoBehaviour
 {
-    public int dano = 12;
+    public int dano = 5;
     public GameObject bala;
     public GameObject circulo;
 
     //float timer = 1.157f;
-    float alcance = 184.28f;
+    float alcance = 215f;
 
     Animator animacao;
 

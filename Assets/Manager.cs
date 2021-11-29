@@ -18,6 +18,8 @@ public class Manager : MonoBehaviour
     public GameObject prefabJacare2;
     public GameObject prefabTank;
     public GameObject wpInicial;
+    public AudioSource barulhoDano;
+    AudioSource ondaCompleta;
 
     int inimigos;
     int numHorda = 1;
@@ -39,6 +41,7 @@ public class Manager : MonoBehaviour
 
     private void Start()
     {
+        ondaCompleta = this.gameObject.GetComponent<AudioSource>();
         numDerrotados = 0;
         vidas = 100;
         lifeLastTurn = vidas;
@@ -71,14 +74,17 @@ public class Manager : MonoBehaviour
                 if (inimigoGerado < 80-numHorda || inimigos < 3) {
                     EnemyControl jacare = Instantiate(prefabJacare, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
                     jacare.wpAtual = wpInicial;
+                    jacare.barulhoDano = barulhoDano;
                     inimigos--;
                 } else if (inimigoGerado < 95-numHorda || inimigos < 5) {
                     EnemyControl jacare2 = Instantiate(prefabJacare2, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
                     jacare2.wpAtual = wpInicial;
+                    jacare2.barulhoDano = barulhoDano;
                     inimigos -= 3;
                 } else {
                     EnemyControl tank = Instantiate(prefabTank, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
                     tank.wpAtual = wpInicial;
+                    tank.barulhoDano = barulhoDano;
                     inimigos -= 5;
                 }
                 timer = 0f;
@@ -87,6 +93,7 @@ public class Manager : MonoBehaviour
             if (inimigos <= 0 && GameObject.FindGameObjectsWithTag("Inimigo").Length == 0)
             {
                 spawning = false;
+                ondaCompleta.Play();
                 numHorda++;
                 
                 if (auto)

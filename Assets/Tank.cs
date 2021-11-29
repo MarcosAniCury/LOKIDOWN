@@ -26,6 +26,8 @@ public class Tank : MonoBehaviour
         {
             EnemyControl jacare = Instantiate(prefabJacare, ponto.transform.position, transform.rotation).GetComponent<EnemyControl>();
             jacare.wpAtual = controle.wpAtual;
+            jacare.flip = controle.flip;
+            jacare.barulhoDano = controle.barulhoDano;
         }
     }
 }
