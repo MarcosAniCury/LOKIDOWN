@@ -6,27 +6,9 @@ using System.Collections.Generic;
 
 public class EnemyControl : MonoBehaviour {
 
-	/*[SerializeField]
-	Transform[] waypoints;
-
-	[SerializeField]
-	Transform[] decisionWaypoints;
-
-	[SerializeField]
-	int[] decisionOption1;
-
-	
-	[SerializeField]
-	int[] decisionOption2;
-
-	
-	[SerializeField]
-	int[] decisionOption3;
-
-	int waypointIndex = 0;*/
-
 	[SerializeField]
 	float moveSpeed = 2f;
+
 	[SerializeField]
 	int dano = 1;
 
@@ -35,9 +17,19 @@ public class EnemyControl : MonoBehaviour {
 	public bool flip = false;
 
 	public GameObject wpAtual;
-	GameObject wpAnterior;
 
 	public AudioSource barulhoDano;
+
+	//Only to chooseBestWay
+	List<int> allEdge;
+
+	List<Waypoint> waypointPrevius;
+
+	const int WAYPOINT_FINAL = 0;
+
+	const int ONLY_ONE_WAY_WAYPOINT = 1;
+
+	const int WEIGHT_EDGE_BEGGINING = 0;
 
 	void Start () {
 		//transform.position = waypoints [waypointIndex].transform.position;
@@ -51,41 +43,29 @@ public class EnemyControl : MonoBehaviour {
 	void Move()
 	{
 		if(Vector3.Distance(transform.position, wpAtual.transform.position) >= 0.01)
-		{//Andar até o waypoint atual
+		{//Andar atï¿½ o waypoint atual
 			transform.position = Vector3.MoveTowards(transform.position, wpAtual.transform.position, moveSpeed * Time.deltaTime);
 		} else
 		{
 			Waypoint wp = wpAtual.GetComponent<Waypoint>();
-			if(wp.proximosWPs.Length == 0)
+			if(wp.proximosWPs.Length == WAYPOINT_FINAL)
 			{ //Eh o waypoint final
 				barulhoDano.Play();
 				Destroy(this.gameObject);
 				Manager.vidas -= dano;
 			} else
-			{ //Escolhe o próximo waypoint
+			{ //Escolhe o prï¿½ximo waypoint
 				GameObject prox = null;
 
-				if(wp.proximosWPs.Length == 1)
-				{ //Se tem só um waypoint para ir, não precisa escolher
+				if(wp.proximosWPs.Length == ONLY_ONE_WAY_WAYPOINT)
+				{ //Se tem sï¿½ um waypoint para ir, nï¿½o precisa escolher
 					prox = wp.proximosWPs[0];
 				} else
-				{ //Escolhe o caminho com menos torres entre os waypoints
-					int menor = 100, posMenor = 0, c = 0;
-					while(c < wp.proximosWPs.Length)
-					{
-						int pesoAresta = wp.torres + wp.proximosWPs[c].GetComponent<Waypoint>().torres;
-						if(pesoAresta < menor && wp.proximosWPs[c] != wpAnterior)
-						{
-							menor = pesoAresta;
-							posMenor = c;
-						}
-						c++;
-					}
-
-					prox = wp.proximosWPs[posMenor];
+				{ //Escolhe o caminho com menos torres entre os waypoint
+				
+					prox = wp.proximosWPs[chooseBestWay(wp)];
 				}
 
-				wpAnterior = wpAtual;
 				wpAtual = prox;
 				if((transform.position.x > wpAtual.transform.position.x && !flip) || (transform.position.x < wpAtual.transform.position.x && flip))
 				{
@@ -94,57 +74,52 @@ public class EnemyControl : MonoBehaviour {
 				}
 			}
 		}
-
-		/*foreach (Transform waypoint in decisionWaypoints) {
-			if (waypoint.position == transform.position) {
-				waypointIndex = choosePath();
-			}
-		}
-
-		transform.position = Vector3.MoveTowards (transform.position,
-												waypoints[waypointIndex].transform.position,
-												moveSpeed * Time.deltaTime);
-		if((transform.position.x > waypoints[waypointIndex].transform.position.x && !flip) || (transform.position.x < waypoints[waypointIndex].transform.position.x && flip))
-		{
-			transform.Rotate(0f, 180f, 0f);
-			flip = !flip;
-		}
-
-		if (transform.position == waypoints [waypointIndex].transform.position) {
-			waypointIndex += 1;
-		}
-
-		if (waypointIndex == waypoints.Length) {
-			Destroy(this.gameObject);
-			Manager.vidas--;
-		}*/
 	}
 
-	/*int choosePath() 
+	int chooseBestWay(Waypoint wp) 
 	{
-		int decisionWaypointsIndex = 0;
-
-		for (int i = 0;i < decisionWaypoints.Length;i++){
-			if (transform.position == decisionWaypoints[i].position) {
-				decisionWaypointsIndex = i;
-				break;
+		allEdge = new List<int>();
+		waypointPrevius = new List<Waypoint>();
+		chooseWay(wp, WEIGHT_EDGE_BEGGINING);
+		int smallWeight = allEdge[0];
+		int wayChoose = 0;
+		for(int i = 1;i < allEdge.Capacity;i++) {
+			if (allEdge[i] < smallWeight) {
+				smallWeight = allEdge[i];
+				for (int j = 1; j <= allEdge.Capacity/wp.proximosWPs.Length;j++) {
+					if (i <= j * allEdge.Capacity/wp.proximosWPs.Length) {
+						wayChoose = j-1;
+					}
+				}
 			}
 		}
+		return wayChoose;
+	}
 
-		int[] paths = { 
-						decisionOption1[decisionWaypointsIndex],
-						decisionOption2[decisionWaypointsIndex],
-						decisionOption3[decisionWaypointsIndex] 
-					};
-
-		int numberRandom = 0;
-		int numberChoose = 0;
-		while (numberChoose == 0) {
-			numberRandom = DateTime.Now.Millisecond % 3;
-			numberChoose = paths[numberRandom];
+	void chooseWay(Waypoint wp, int weightEdge)
+	{
+		int weightEdgeFromNow = weightEdge;
+		while (wp.proximosWPs.Length != 0) {
+			if (wp.proximosWPs.Length == 1) {
+				weightEdgeFromNow += wp.torres;
+				wp = wp.proximosWPs[0].GetComponent<Waypoint>();
+			} else {
+				weightEdgeFromNow += wp.torres;
+				waypointPrevius.Add(wp);
+				foreach (UnityEngine.GameObject waypointNext in wp.proximosWPs) {
+					Waypoint wpNext = waypointNext.GetComponent<Waypoint>();
+					if (!waypointPrevius.Contains(wpNext)) {
+						chooseWay(wpNext, weightEdgeFromNow);
+					}
+				}
+				waypointPrevius = new List<Waypoint>();
+				return;
+			}
 		}
-		return numberChoose;
-	}*/
+		if (wp.proximosWPs.Length == 0) {
+			allEdge.Add(weightEdgeFromNow);
+		}
+	}
 
 	public void setSpeed(string calculo) {
 
