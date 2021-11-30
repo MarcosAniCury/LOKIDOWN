@@ -4063,6 +4063,7 @@ MonoBehaviour:
   onda: {fileID: 1595414638}
   painel: {fileID: 1581778878}
   botaoComecar: {fileID: 1882481758}
+  sliderVolume: {fileID: 1453066914}
 --- !u!82 &692859734
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8979,6 +8980,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: set_volume
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 692859733}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: ajeitaVolume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

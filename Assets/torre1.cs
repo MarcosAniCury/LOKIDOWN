@@ -8,6 +8,7 @@ public class torre1 : MonoBehaviour
     public GameObject bala;
     public GameObject alvo = null;
     public GameObject circulo;
+    AudioSource som;
 
     float timer = 0f;
     float alcance = 300f;
@@ -15,7 +16,7 @@ public class torre1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        som = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class torre1 : MonoBehaviour
             alvo = EscolheAlvo();
             if(alvo != null)
             {
+                som.Play();
                 projetil tiro = Instantiate(bala, transform.position, Quaternion.identity).GetComponent<projetil>();
                 tiro.dano = dano;
                 tiro.alvo = alvo;

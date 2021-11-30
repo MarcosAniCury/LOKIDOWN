@@ -11,11 +11,13 @@ public class torre2 : MonoBehaviour
 
     float timer = 0f;
     float alcance = 215f;
+    AudioSource somTiro;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.Translate(2.5f, -25f, 0f);
+        somTiro = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class torre2 : MonoBehaviour
             alvo = EscolheAlvo();
             if (alvo != null)
             {
+                somTiro.Play();
                 StartCoroutine(atirar());
                 timer = 0f;
             }

@@ -38,6 +38,7 @@ public class Manager : MonoBehaviour
     public Text onda;
     public GameObject painel;
     public Button botaoComecar;
+    public Slider sliderVolume;
 
     private void Start()
     {
@@ -189,5 +190,33 @@ public class Manager : MonoBehaviour
     public void x2()
     {
         Time.timeScale = 2;
+    }
+
+    public void ajeitaVolume()
+    {
+        float novoVolume = sliderVolume.value;
+
+        barulhoDano.volume = novoVolume;
+        prefabJacare.GetComponent<AudioSource>().volume = novoVolume;
+        prefabJacare2.GetComponent<AudioSource>().volume = novoVolume;
+        prefabTank.GetComponent<AudioSource>().volume = novoVolume;
+
+        foreach(GameObject prefabTorre in torres)
+        {
+            prefabTorre.GetComponent<AudioSource>().volume = novoVolume;
+        }
+
+        GameObject[] sonsTorres = GameObject.FindGameObjectsWithTag("Torre");
+        foreach(GameObject torre in sonsTorres)
+        {
+            torre.GetComponent<AudioSource>().volume = novoVolume;
+        }
+
+        GameObject[] sonsInimigos = GameObject.FindGameObjectsWithTag("Inimigo");
+        foreach(GameObject inimigo in sonsInimigos)
+        {
+            inimigo.GetComponent<EnemyControl>().barulhoDano.volume = novoVolume;
+            inimigo.GetComponent<AudioSource>().volume = novoVolume;
+        }
     }
 }
