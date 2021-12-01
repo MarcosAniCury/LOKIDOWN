@@ -24,6 +24,9 @@ public class EnemyControl : MonoBehaviour {
 	List<int> allEdge;
 
 	List<Waypoint> waypointPrevius;
+	public List<GameObject[]> caminhos = new List<GameObject[]>();
+	public int indexMelhorCaminho = -1;
+	public int wp = 0;
 
 	const int WAYPOINT_FINAL = 0;
 
@@ -34,6 +37,39 @@ public class EnemyControl : MonoBehaviour {
 	void Start () {
 		//transform.position = waypoints [waypointIndex].transform.position;
 		sprite = GetComponent<SpriteRenderer>();
+
+		if (indexMelhorCaminho == -1)
+		{
+			int a = 0;
+			int[] pesos = new int[caminhos.Count];
+
+			while (a < caminhos.Capacity)
+			{
+				int b = 0;
+				while (b < caminhos[a].Length)
+				{
+					pesos[a] += caminhos[a][b].GetComponent<Waypoint>().torres;
+					b++;
+				}
+				a++;
+			}
+
+			a = 1;
+			indexMelhorCaminho = 0;
+			int menor = pesos[0];
+
+			while (a < pesos.Length)
+			{
+				if (pesos[a] < menor)
+				{
+					indexMelhorCaminho = a;
+					menor = pesos[a];
+				}
+				a++;
+			}
+
+		}
+
 	}
 
 	void Update () {
@@ -42,20 +78,21 @@ public class EnemyControl : MonoBehaviour {
 
 	void Move()
 	{
-		if(Vector3.Distance(transform.position, wpAtual.transform.position) >= 0.01)
+		if(Vector3.Distance(transform.position, caminhos[indexMelhorCaminho][wp].transform.position) >= 0.01)
 		{//Andar at� o waypoint atual
-			transform.position = Vector3.MoveTowards(transform.position, wpAtual.transform.position, moveSpeed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, caminhos[indexMelhorCaminho][wp].transform.position, moveSpeed * Time.deltaTime);
 		} else
 		{
-			Waypoint wp = wpAtual.GetComponent<Waypoint>();
-			if(wp.proximosWPs.Length == WAYPOINT_FINAL)
+			Waypoint ponto = caminhos[indexMelhorCaminho][wp].GetComponent<Waypoint>();
+			if(ponto.proximosWPs.Length == WAYPOINT_FINAL)
 			{ //Eh o waypoint final
 				barulhoDano.Play();
 				Destroy(this.gameObject);
 				Manager.vidas -= dano;
 			} else
 			{ //Escolhe o pr�ximo waypoint
-				GameObject prox = null;
+				wp++;
+				/*GameObject prox = null;
 
 				if(wp.proximosWPs.Length == ONLY_ONE_WAY_WAYPOINT)
 				{ //Se tem s� um waypoint para ir, n�o precisa escolher
@@ -66,8 +103,8 @@ public class EnemyControl : MonoBehaviour {
 					prox = wp.proximosWPs[chooseBestWay(wp)];
 				}
 
-				wpAtual = prox;
-				if((transform.position.x > wpAtual.transform.position.x && !flip) || (transform.position.x < wpAtual.transform.position.x && flip))
+				wpAtual = prox;*/
+				if((transform.position.x > caminhos[indexMelhorCaminho][wp].transform.position.x && !flip) || (transform.position.x < caminhos[indexMelhorCaminho][wp].transform.position.x && flip))
 				{
 					transform.Rotate(0f, 180f, 0f);
 					flip = !flip;
@@ -84,6 +121,7 @@ public class EnemyControl : MonoBehaviour {
 		int smallWeight = allEdge[0];
 		int wayChoose = 0;
 		for(int i = 1;i < allEdge.Capacity;i++) {
+
 			if (allEdge[i] < smallWeight) {
 				smallWeight = allEdge[i];
 				for (int j = 1; j <= allEdge.Capacity/wp.proximosWPs.Length;j++) {

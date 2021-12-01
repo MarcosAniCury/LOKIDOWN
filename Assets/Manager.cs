@@ -18,6 +18,10 @@ public class Manager : MonoBehaviour
     public GameObject prefabJacare2;
     public GameObject prefabTank;
     public GameObject wpInicial;
+    public GameObject[] opcaoCaminho1;
+    public GameObject[] opcaoCaminho2;
+    public GameObject[] opcaoCaminho3;
+    public GameObject[] opcaoCaminho4;
     public AudioSource barulhoDano;
     AudioSource ondaCompleta;
 
@@ -46,7 +50,7 @@ public class Manager : MonoBehaviour
         numDerrotados = 0;
         vidas = 100;
         lifeLastTurn = vidas;
-        money = 550;
+        money = 1000000;
         int c = 0;
         while(c < espacosTorres.Length)
         {
@@ -76,16 +80,28 @@ public class Manager : MonoBehaviour
                     EnemyControl jacare = Instantiate(prefabJacare, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
                     jacare.wpAtual = wpInicial;
                     jacare.barulhoDano = barulhoDano;
+                    jacare.caminhos.Add(opcaoCaminho1);
+                    jacare.caminhos.Add(opcaoCaminho2);
+                    jacare.caminhos.Add(opcaoCaminho3);
+                    jacare.caminhos.Add(opcaoCaminho4);
                     inimigos--;
                 } else if (inimigoGerado < 95-numHorda || inimigos < 5) {
                     EnemyControl jacare2 = Instantiate(prefabJacare2, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
                     jacare2.wpAtual = wpInicial;
                     jacare2.barulhoDano = barulhoDano;
+                    jacare2.caminhos.Add(opcaoCaminho1);
+                    jacare2.caminhos.Add(opcaoCaminho2);
+                    jacare2.caminhos.Add(opcaoCaminho3);
+                    jacare2.caminhos.Add(opcaoCaminho4);
                     inimigos -= 3;
                 } else {
                     EnemyControl tank = Instantiate(prefabTank, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
                     tank.wpAtual = wpInicial;
                     tank.barulhoDano = barulhoDano;
+                    tank.caminhos.Add(opcaoCaminho1);
+                    tank.caminhos.Add(opcaoCaminho2);
+                    tank.caminhos.Add(opcaoCaminho3);
+                    tank.caminhos.Add(opcaoCaminho4);
                     inimigos -= 5;
                 }
                 timer = 0f;
