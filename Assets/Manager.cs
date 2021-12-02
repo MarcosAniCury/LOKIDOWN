@@ -50,7 +50,8 @@ public class Manager : MonoBehaviour
         numDerrotados = 0;
         vidas = 100;
         lifeLastTurn = vidas;
-        money = 1000000;
+        money = 550;
+        Time.timeScale = 1;
         int c = 0;
         while(c < espacosTorres.Length)
         {
