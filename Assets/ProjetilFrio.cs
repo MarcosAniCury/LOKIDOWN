@@ -31,7 +31,14 @@ public class ProjetilFrio : MonoBehaviour
         if (Vector3.Distance(transform.position, alvo.transform.position) <= 1)
         {
             alvo.GetComponent<EnemyHealth>().takeDamage(dano);
-            alvo.GetComponent<EnemyControl>().freeze();
+            if (alvo.GetComponent<EnemyControl>() != null)
+            {
+
+                alvo.GetComponent<EnemyControl>().freeze();
+            } else
+            {
+                alvo.GetComponent<JacareJetpack>().freeze();
+            }
             Destroy(this.gameObject);
         }
 
