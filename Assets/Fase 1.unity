@@ -1485,6 +1485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1469185032}
 --- !u!1 &226656028
@@ -1534,6 +1535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1487501041}
   - {fileID: 720286356}
@@ -1858,6 +1860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1001761476}
   - {fileID: 451539641}
@@ -2675,6 +2678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1783749994}
   - {fileID: 2072210160}
@@ -3095,6 +3099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 781314797}
 --- !u!1 &562526285
@@ -3429,6 +3434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1374080552}
   - {fileID: 755581620}
@@ -3918,6 +3924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1919928542}
   - {fileID: 808287770}
@@ -4168,6 +4175,7 @@ MonoBehaviour:
   prefabJacare: {fileID: 8846462530991159051, guid: 1a2b2da1be0caa14e9df103e28d57a4a, type: 3}
   prefabJacare2: {fileID: 227922955498111659, guid: e3f59a7beb0fe0245af46b6cb88d04f7, type: 3}
   prefabTank: {fileID: 6658058435254583186, guid: 8f3d5847f7a3b0642b339adb40c526a5, type: 3}
+  prefabJetpack: {fileID: 2410519954342152526, guid: d9daaa0574797b24f95df423680cfc8b, type: 3}
   wpInicial: {fileID: 602512125}
   opcaoCaminho1:
   - {fileID: 602512125}
@@ -4527,6 +4535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 451539641}
   - {fileID: 1837177882}
@@ -4938,6 +4947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 451539641}
   - {fileID: 1783749994}
@@ -5050,6 +5060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 226656028}
   - {fileID: 1487501041}
@@ -5313,6 +5324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 950775566}
 --- !u!1 &808287770
@@ -5424,6 +5436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 225377716}
 --- !u!1 &812520798
@@ -6045,6 +6058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1980252735}
 --- !u!1 &857688429
@@ -6981,6 +6995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1517059709}
 --- !u!1001 &956989722
@@ -7313,6 +7328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 848984970}
 --- !u!1 &1008275320
@@ -7424,6 +7440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 655729853}
 --- !u!1001 &1021428380
@@ -7973,141 +7990,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108992314}
   m_CullTransparentMesh: 1
---- !u!1 &1117795186
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1117795189}
-  - component: {fileID: 1117795188}
-  - component: {fileID: 1117795187}
-  - component: {fileID: 1117795191}
-  - component: {fileID: 1117795190}
-  m_Layer: 0
-  m_Name: JacareJetpack
-  m_TagString: Inimigo
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &1117795187
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117795186}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e9af80dc0dff50d46bf407c2a8eb8374, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &1117795188
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117795186}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 45c8862919a181e449b2b37a83bb45a5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 3.2, y: 3.2}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1117795189
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117795186}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 239.3, y: 145.3, z: 0}
-  m_LocalScale: {x: 34.023, y: 34.023, z: 1.1341}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1117795190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117795186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4edab6128cad0f14ca95c3a80c3686ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 300
-  dano: 2
-  flip: 0
-  wpAtual: {fileID: 0}
-  barulhoDano: {fileID: 0}
---- !u!114 &1117795191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117795186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bbb8f87eb6fdd47a3a4fc8ffc95ab5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vida: 20
-  dinheiro: 2
 --- !u!1 &1138468726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6411028729918941184, guid: 113de49997db7a64a98c8a278fe8303d, type: 3}
@@ -8880,6 +8762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 451539641}
   - {fileID: 1783749994}
@@ -9788,6 +9671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 755581620}
   - {fileID: 226656028}
@@ -10189,6 +10073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 251054350}
 --- !u!1 &1482400152 stripped
@@ -10322,6 +10207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1293226046}
   - {fileID: 451539641}
@@ -10873,6 +10759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs: []
 --- !u!1 &1519276378
 GameObject:
@@ -12813,6 +12700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 2072210160}
 --- !u!65 &1783749996
@@ -13230,6 +13118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1517059709}
 --- !u!65 &1837177884
@@ -14103,6 +13992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 451539641}
 --- !u!1 &1920565320
@@ -14285,6 +14175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 553544743}
 --- !u!1 &1998817448 stripped
@@ -14813,6 +14704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torres: 0
+  mortos: 0
   proximosWPs:
   - {fileID: 1517059709}
 --- !u!65 &2072210163

@@ -17,6 +17,7 @@ public class Manager : MonoBehaviour
     public GameObject prefabJacare;
     public GameObject prefabJacare2;
     public GameObject prefabTank;
+    public GameObject prefabJetpack;
     public GameObject wpInicial;
     public GameObject[] opcaoCaminho1;
     public GameObject[] opcaoCaminho2;
@@ -77,7 +78,8 @@ public class Manager : MonoBehaviour
                 UnityEngine.Random.InitState((int)DateTimeOffset.Now.ToUnixTimeSeconds());
                 int inimigoGerado = UnityEngine.Random.Range(1, 101);
 
-                if (inimigoGerado < 80-numHorda || inimigos < 3) {
+                if (inimigoGerado < 65 - numHorda || inimigos < 2)
+                {
                     EnemyControl jacare = Instantiate(prefabJacare, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
                     jacare.wpAtual = wpInicial;
                     jacare.barulhoDano = barulhoDano;
@@ -86,7 +88,14 @@ public class Manager : MonoBehaviour
                     jacare.caminhos.Add(opcaoCaminho3);
                     jacare.caminhos.Add(opcaoCaminho4);
                     inimigos--;
-                } else if (inimigoGerado < 95-numHorda || inimigos < 5) {
+                } else if (inimigoGerado < 80 - numHorda || inimigos < 3)
+                {
+                    JacareJetpack jacare = Instantiate(prefabJetpack, wpInicial.transform.position, Quaternion.identity).GetComponent<JacareJetpack>();
+                    jacare.wpAtual = wpInicial;
+                    jacare.barulhoDano = barulhoDano;
+                    inimigos -= 2;
+                }
+                else if (inimigoGerado < 95-numHorda || inimigos < 5) {
                     EnemyControl jacare2 = Instantiate(prefabJacare2, wpInicial.transform.position, Quaternion.identity).GetComponent<EnemyControl>();
                     jacare2.wpAtual = wpInicial;
                     jacare2.barulhoDano = barulhoDano;

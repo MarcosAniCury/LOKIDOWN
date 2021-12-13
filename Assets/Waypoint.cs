@@ -5,6 +5,7 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
     public int torres = 0;
+    public int mortos = 0;
     public GameObject[] proximosWPs;
 
     // Start is called before the first frame update

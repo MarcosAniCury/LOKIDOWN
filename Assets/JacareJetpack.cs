@@ -58,9 +58,20 @@ public class JacareJetpack : MonoBehaviour
 				{ //Se tem so um waypoint para ir, nao precisa escolher
 					prox = ponto.proximosWPs[0];
 				} else
-				{ //Escolhe o caminho com menos torres entre os waypoint
-				
-					
+				{ //Escolhe o caminho com menos inimigos derrotados
+
+					int c = 1, menor = ponto.proximosWPs[0].GetComponent<Waypoint>().mortos;
+					prox = ponto.proximosWPs[0];
+
+					while(c < ponto.proximosWPs.Length)
+                    {
+						if(ponto.proximosWPs[c].GetComponent<Waypoint>().mortos < menor)
+                        {
+							menor = ponto.proximosWPs[c].GetComponent<Waypoint>().mortos;
+							prox = ponto.proximosWPs[c];
+						}
+						c++;
+                    }
 				}
 
 				wpAtual = prox;
@@ -91,4 +102,9 @@ public class JacareJetpack : MonoBehaviour
 		sprite.material.SetColor("_Color", new Color(1f, 1f, 1f));
 		slow = false;
 	}
+
+	private void OnDestroy()
+    {
+		wpAtual.GetComponent<Waypoint>().mortos++;
+    }
 }
