@@ -5,9 +5,9 @@ Projeto de TI4 quarto período
 
   - Marcos Ani Cury Vinagre Silva
   - Leticia Americano Lucas
-  - Henrique
-  - Felipe
-  - Wesley
+  - Henrique Augusto Rodrigues
+  - Filipe Arthur Ferreira Silva
+  - Wesley Filemon Rocha Rodrigues
 
 ## Introdução
 
