@@ -1,5 +1,22 @@
 # LOKIDOWN
 Projeto de TI4 quarto período
-Turno: Manhã
-Mapa: Base no centro, e 4 entradas por onde os inimigos vão tentar invadir. Pseudo-random.
-Fases: A cada x pontos o mapa vai se tornando mais escuro.
+
+## Devs
+
+  - Marcos Ani Cury Vinagre Silva
+  - Leticia Americano Lucas
+  - Henrique
+  - Felipe
+  - Wesley
+
+## Introdução
+
+  O projeto foi desenvolvido para a matéria de trabalho interdiciplinar focando em criar um jogo mobile usando IA nele, assim nos resolvemos criar um jogo do genêro Tower Defense, aonde o mapa iria apresentar vários caminhos distíntos e assim a IA iria escolher o caminho melhor caminho para que ela possa chegar viva ao final, dessa forma iria tornar o jogo mais difícil do que encontramos atualmente no mercado.
+  
+## O que se encontra presente no jogo?
+
+  O jogo apresenta 3 torres com mecânicas e valores diferêntes, 4 inimigos sendo 3 com mecânicas diferentes que seguem o caminho do mapa e 1 inimigo voador que utiliza uma outra rota. É presente no jogo 1 mapa, mecânicas de vida ao qual se ela se esgotar o jogador perde, mecânica de rodas e dinheiro para comprar as torres.
+  
+## APK do jogo
+
+ - [Clique aqui para fazer download do jogo]()
