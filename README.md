@@ -17,6 +17,10 @@ Projeto de TI4 quarto período
 
   O jogo apresenta 3 torres com mecânicas e valores diferêntes, 4 inimigos sendo 3 com mecânicas diferentes que seguem o caminho do mapa e 1 inimigo voador que utiliza uma outra rota. É presente no jogo 1 mapa, mecânicas de vida ao qual se ela se esgotar o jogador perde, mecânica de rodas e dinheiro para comprar as torres.
   
+## Apresentação
+
+  [Clique aqui para ver a apresentação do nosso mapa](https://github.com/MarcosAniCury/LOKIDOWN/blob/main/Apresenta%C3%A7%C3%A3o%20do%20projeto/LOKIDOWN.pdf)
+
 ## APK do jogo
 
- - [Clique aqui para fazer download do jogo]()
+ - [Clique aqui para fazer download do jogo](https://github.com/MarcosAniCury/LOKIDOWN/blob/main/FinishedAplication/LOKIDOWN.apk)
