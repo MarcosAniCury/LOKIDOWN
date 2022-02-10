@@ -19,7 +19,7 @@ Projeto de TI4 quarto período
   
 ## Apresentação
 
-  [Clique aqui para ver a apresentação do nosso mapa](https://github.com/MarcosAniCury/LOKIDOWN/blob/main/Apresenta%C3%A7%C3%A3o%20do%20projeto/LOKIDOWN.pdf)
+ - [Clique aqui para ver a apresentação do nosso mapa](https://github.com/MarcosAniCury/LOKIDOWN/blob/main/Apresenta%C3%A7%C3%A3o%20do%20projeto/LOKIDOWN.pdf)
 
 ## APK do jogo
 
